@@ -5,5 +5,5 @@ edition = "2021"
 publish = false
 
 [dependencies]
-passionfruitdev = { version = ">= 0.1.0-manual, < 0.1.0-nightly", features = ["website"]}
+passionfruitdev = { version = "0", features = ["website"]}
 leptos = { version = "0.5.2", features = ["csr"] }

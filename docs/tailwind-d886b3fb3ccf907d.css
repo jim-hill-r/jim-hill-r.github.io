@@ -576,6 +576,10 @@ html {
   display: grid;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-36 {
   height: 9rem;
 }
@@ -588,12 +592,20 @@ html {
   height: 100vh;
 }
 
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .gap-4 {
   gap: 1rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-2xl {
@@ -614,8 +626,68 @@ html {
   background-image: url('images/better-world.jpg');
 }
 
+.bg-\[url\(\'images\/blue-eel\.jpg\'\)\] {
+  background-image: url('images/blue-eel.jpg');
+}
+
+.bg-\[url\(\'images\/educational-reform\.jpg\'\)\] {
+  background-image: url('images/educational-reform.jpg');
+}
+
+.bg-\[url\(\'images\/environmental-impact\.jpg\'\)\] {
+  background-image: url('images/environmental-impact.jpg');
+}
+
+.bg-\[url\(\'images\/financial-freedom\.jpg\'\)\] {
+  background-image: url('images/financial-freedom.jpg');
+}
+
+.bg-\[url\(\'images\/fire\.jpg\'\)\] {
+  background-image: url('images/fire.jpg');
+}
+
+.bg-\[url\(\'images\/fitness\.jpg\'\)\] {
+  background-image: url('images/fitness.jpg');
+}
+
+.bg-\[url\(\'images\/gumby\.svg\'\)\] {
+  background-image: url('images/gumby.svg');
+}
+
+.bg-\[url\(\'images\/health-and-wellness\.jpg\'\)\] {
+  background-image: url('images/health-and-wellness.jpg');
+}
+
+.bg-\[url\(\'images\/luggage\.jpg\'\)\] {
+  background-image: url('images/luggage.jpg');
+}
+
+.bg-\[url\(\'images\/natural-beauty\.jpg\'\)\] {
+  background-image: url('images/natural-beauty.jpg');
+}
+
+.bg-\[url\(\'images\/passion-fruit\.png\'\)\] {
+  background-image: url('images/passion-fruit.png');
+}
+
+.bg-\[url\(\'images\/physics-and-math\.jpg\'\)\] {
+  background-image: url('images/physics-and-math.jpg');
+}
+
 .bg-\[url\(\'images\/responsible-computing\.jpg\'\)\] {
   background-image: url('images/responsible-computing.jpg');
+}
+
+.bg-\[url\(\'images\/robotics-and-automation\.jpg\'\)\] {
+  background-image: url('images/robotics-and-automation.jpg');
+}
+
+.bg-\[url\(\'images\/space-exploration\.jpg\'\)\] {
+  background-image: url('images/space-exploration.jpg');
+}
+
+.bg-\[url\(\'\{\}\'\)\] {
+  background-image: url('{}');
 }
 
 .bg-cover {
@@ -688,6 +760,11 @@ html {
 .text-blue-700 {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .shadow-lg {

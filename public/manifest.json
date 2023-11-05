@@ -1,0 +1,17 @@
+{
+    "lang": "en",
+    "dir": "ltr",
+    "name": "Jim Hill Github Profile",
+    "short_name": "jim-hill-r",
+    "icons": [{
+      "src": "favicon.ico",
+      "sizes": "64x64"
+    }],
+    "scope": "/",
+    "id": "jim-hill-r",
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "orientation": "landscape",
+    "theme_color": "blue",
+    "background_color": "blue"
+  }

@@ -126,7 +126,7 @@ fn Body() -> impl IntoView {
         ]}
     ];
     view! {
-        <div class="bg-[url('images/better-world.jpg')] h-screen bg-cover shadow-lg rounded-b-3xl">
+        <div class="bg-[url('images/better-world.jpg')] h-screen bg-cover bg-center shadow-lg rounded-b-3xl">
             <h1 class="text-8xl text-blue-700 text-right font-bold py-20 pr-10"> "Jim Hill" </h1>
             <p class="text-6xl text-blue-400 text-right p-10"> "Be better, build better." </p>
         </div>
@@ -142,7 +142,7 @@ fn Body() -> impl IntoView {
                             section.cards.into_iter()
                             .map(|card| view! {
                                 <div class="">
-                                    <div class=move || {format!("h-36 bg-cover rounded-2xl bg-[url('{}')]",card.image)}>
+                                    <div class=move || {format!("h-36 bg-cover bg-center rounded-2xl bg-[url('{}')]",card.image)}>
                                     </div>
                                     <div>
                                         <h3 class="text-2xl text-blue-400 text-center p-2 pt-6">{card.title}</h3>

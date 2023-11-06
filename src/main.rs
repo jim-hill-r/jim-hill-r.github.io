@@ -51,7 +51,7 @@ fn Body() -> impl IntoView {
                     image: "images/health-and-wellness.jpg".to_string()
                 },
                 Card {
-                    title: "Environmental Impact".to_string(),
+                    title: "Climate Impact".to_string(),
                     description: "Climate change is the existential crisis of our generation.".to_string(),
                     image: "images/environmental-impact.jpg".to_string()
                 },
@@ -131,7 +131,7 @@ fn Body() -> impl IntoView {
             <p class="text-6xl text-blue-400 text-right p-10"> "Be better, build better." </p>
         </div>
         <div class="h-10"></div>
-        <div class="container m-auto grid grid-cols-5 gap-4">
+        <div class="container m-auto grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4 p-4">
             {
                 sections.into_iter()
                     .map(|section| view! { 

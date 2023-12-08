@@ -2,6 +2,7 @@ use include_dir::{include_dir, Dir};
 use markdown::{ParseOptions, Constructs, Options, to_html_with_options};
 use passionfruitdev::website::Website;
 use leptos::*;
+use leptos_router::*;
 
 const CONTENT_DIRECTORY: Dir = include_dir!("./content");
 
@@ -19,13 +20,22 @@ fn markdown_options() -> Options {
 }
 
 fn main() {
-    leptos::mount_to_body(|| view! { <Website> <Body/> </Website> })
+    leptos::mount_to_body(|| view! { 
+        <Router>
+            <Routes>
+                <Route path="/" view=Home/>
+                <Route path="/resume" view=Resume/>
+                <Route path="/*any" view=|| view! { <h1>"Not Found"</h1> }/>
+            </Routes>
+        </Router>
+    })
 }
 
 struct Card {
     title: String,
     description: String,
-    image: String
+    image: String,
+    link: Option<String>
 }
 
 struct Section {
@@ -34,7 +44,7 @@ struct Section {
 }
 
 #[component]
-fn Body() -> impl IntoView {
+fn Home() -> impl IntoView {
     let md_options: Options = markdown_options();
     let sections = [
         Section {
@@ -43,27 +53,32 @@ fn Body() -> impl IntoView {
                 Card {
                     title: "Responsible Computing".to_string(),
                     description: "We are in the midst of a data revolution and much like the industrial revolution, software engineers have a responsibility for how it affects our society.".to_string(),
-                    image: "images/responsible-computing.jpg".to_string()
+                    image: "images/responsible-computing.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Health and Wellness".to_string(),
                     description: "Health is a fundamental human right and health data should help individuals not increase the profits of large corporations.".to_string(),
-                    image: "images/health-and-wellness.jpg".to_string()
+                    image: "images/health-and-wellness.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Climate Impact".to_string(),
                     description: "Climate change is the existential crisis of our generation.".to_string(),
-                    image: "images/environmental-impact.jpg".to_string()
+                    image: "images/environmental-impact.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Education Reform".to_string(),
                     description: "Education is not personalized and technology can increase the availability and accessibility of learning to everyone.".to_string(),
-                    image: "images/educational-reform.jpg".to_string()
+                    image: "images/educational-reform.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Financial Freedom".to_string(),
                     description: "Not everyone is an entrepreneur. Creators and builders should be unencumbered by money to enhance their impact on the world!".to_string(),
-                    image: "images/financial-freedom.jpg".to_string()
+                    image: "images/financial-freedom.jpg".to_string(),
+                    link: None
                 }
         ]},
         Section {
@@ -72,27 +87,32 @@ fn Body() -> impl IntoView {
                 Card {
                     title: "Luggage".to_string(),
                     description: "Data does not belong to corporations. It belongs to us. This project hopes to provide an open-source interface for making your data safe, secure and portable.".to_string(),
-                    image: "images/luggage.jpg".to_string()
+                    image: "images/luggage.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Gumby".to_string(),
                     description: "Data-driven health and fitness for everyone.".to_string(),
-                    image: "images/gumby.svg".to_string()
+                    image: "images/gumby.svg".to_string(),
+                    link: Some("https://www.6umby.com".to_string())
                 },
                 Card {
                     title: "Passion Fruit".to_string(),
                     description: "When encumbered by too many dreams and goals, a platform of tools to accelerate many ideas at once is needed.".to_string(),
-                    image: "images/passion-fruit.png".to_string()
+                    image: "images/passion-fruit.png".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Blue Eel".to_string(),
                     description: "Literacy is the single most important outcome in a child's life. Let's not forget about those who struggle.".to_string(),
-                    image: "images/blue-eel.jpg".to_string()
+                    image: "images/blue-eel.jpg".to_string(),
+                    link: Some("https://blue.eel.education".to_string())
                 },
                 Card {
                     title: "Fire".to_string(),
                     description: "Financial planning tools for everyone so they can better understand the consequences of their decisions.".to_string(),
-                    image: "images/fire.jpg".to_string()
+                    image: "images/fire.jpg".to_string(),
+                    link: None
                 }
         ]},
         Section {
@@ -101,27 +121,32 @@ fn Body() -> impl IntoView {
                 Card {
                     title: "Space Exploration".to_string(),
                     description: "I have always been interested in space and I believe that becoming multi-planetary is important for humanity. I just don't know yet how I can help or if it is our most pressing concern.".to_string(),
-                    image: "images/space-exploration.jpg".to_string()
+                    image: "images/space-exploration.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Fitness".to_string(),
                     description: "A sound body is key to a sound mind. Through running, swimming, and climbing I find my peace in a healthy life.".to_string(),
-                    image: "images/fitness.jpg".to_string()
+                    image: "images/fitness.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Natural Beauty".to_string(),
                     description: "I long for the beautiful vistas and natural places in this world. I want to preserve and sustain them for all generations!".to_string(),
-                    image: "images/natural-beauty.jpg".to_string()
+                    image: "images/natural-beauty.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "Physics and Math".to_string(),
                     description: "Physics and math have always intrigued me. I would love to just spend all day working on fundamental unsolved problems in this space, but I am neither smart enough or focused enough. Instead, I am working on empowered those who are with financial freedom!".to_string(),
-                    image: "images/physics-and-math.jpg".to_string()
+                    image: "images/physics-and-math.jpg".to_string(),
+                    link: None
                 },
                 Card {
                     title: "FIRST Robotics".to_string(),
                     description: "Mentoring the next generation into being well rounded, thoughtful engineers brings me endless joy. ".to_string(),
-                    image: "images/robotics-and-automation.jpg".to_string()
+                    image: "images/robotics-and-automation.jpg".to_string(),
+                    link: Some("http://wildraccoons8891.org/".to_string())
                 }
         ]}
     ];
@@ -142,6 +167,7 @@ fn Body() -> impl IntoView {
                             section.cards.into_iter()
                             .map(|card| view! {
                                 <div class="">
+                                    <a target="_blank" href={card.link}>
                                     <div class=move || {format!("h-36 bg-cover bg-center rounded-2xl bg-[url('{}')]",card.image)}>
                                     </div>
                                     <div>
@@ -150,6 +176,7 @@ fn Body() -> impl IntoView {
                                             {card.description}
                                         </p>
                                     </div>
+                                    </a>
                                 </div>
                             }).collect::<Vec<_>>()
                         }
@@ -157,7 +184,7 @@ fn Body() -> impl IntoView {
                     .collect::<Vec<_>>()
             }
         </div>
-        <footer class="h-40 bg-blue-400 mt-10 p-10">
+        <footer class="min-h-40 bg-blue-400 mt-10 p-10">
             <div class="container m-auto grid grid-cols-1 gap-4">
                 <div class="text-right text-white">
                     <p> Join me in building a better world. </p>
@@ -165,7 +192,423 @@ fn Body() -> impl IntoView {
                 <div class="text-right">
                     <a href="https://www.github.com/jim-hill-r" class="text-bold text-white"> Github </a>
                 </div>
+                <div class="text-right">
+                    <a href="https://www.linkedin.com/in/jimhillr/" class="text-bold text-white"> LinkedIn </a>
+                </div>
+                <div class="text-right">
+                    <a href="/resume" class="text-bold text-white"> Resume </a>
+                </div>
             </div>
         </footer>
     }
+}
+
+enum Focus {
+    ENGINEER,
+    EDUCATOR,
+    ENTREPRENEUR
+}
+
+struct Experience {
+    focus: Focus,
+    title: String,
+    company: String,
+    timeframe: String,
+    descriptions: Vec<String>
+}
+
+#[component]
+fn Resume() -> impl IntoView {
+    let engineerExperiences = [
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Infrastructure Team Lead".to_string(),
+            company: "JuliaHub".to_string(),
+            timeframe: "2023-Present".to_string(),
+            descriptions: vec![
+                "Manage and coordinate work for the infrastructure team for the core platform.".to_string()
+            ]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Cloud Engineer".to_string(),
+            company: "JuliaHub".to_string(),
+            timeframe: "2022-Present".to_string(),
+            descriptions: vec![
+                "Build, architect, and operate the AWS and Kubernetes for the core platform.".to_string()
+            ]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Principal Software Engineer".to_string(),
+            company: "NavAbility".to_string(),
+            timeframe: "2020-2022".to_string(),
+            descriptions: vec![
+                "Designed, developed and operationalized progressive web app on AWS".to_string(),
+                "Architected cloud system in collaboration with core Caesar.jl team including CICD".to_string(),
+                "Implemented and launched over 10 microservices on AWS ECS entirely with CloudFormation".to_string(),
+                "Produced marketing website using Elementor on Wordpress".to_string()
+            ]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Enterprise Architect".to_string(),
+            company: "Intelligent Medical Objects".to_string(),
+            timeframe: "2020-2021".to_string(),
+            descriptions: vec![
+                "Architected the evolutionary architecture for the future of core search and normalize".to_string(),
+                "Evangelized a shift to cross-team microservices architectures".to_string(),
+                "Mentored multiple teams in api design while shifting away from 3-tiered architectures".to_string()
+            ]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Staff Software Engineer".to_string(),
+            company: "Intelligent Medical Objects".to_string(),
+            timeframe: "2019-2020".to_string(),
+            descriptions: vec![
+                "Provisioned and operated high availability infrastructure for core search product on AWS".to_string(),
+                "Responsible for technology upgrade from .NET to ElasticSearch and AWS Lambda".to_string(),
+                "Supported and mentored engineers to ensure rapid delivery of quality software leveraging agile scrum".to_string()
+            ]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Senior Software Engineer".to_string(),
+            company: "GE Digital".to_string(),
+            timeframe: "2015-2019".to_string(),
+            descriptions: vec![
+                "Develop dotnet and web apps improving efficiency and scalability of the GE Digital managed services
+organization".to_string(),
+                "Primary project manager, architect, designer and developer for products built on Predix cloud and WinForms".to_string(),
+                "Responsible for delivering agile sprint stories involving C#, NodeJS, Angular2, Spring Boot, Postgres, OAuth2, and
+                Cloud Foundry".to_string()
+            ]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Customer Reliability Engineer".to_string(),
+            company: "GE Digital".to_string(),
+            timeframe: "2013-2015".to_string(),
+            descriptions: vec![]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Applications Engineer".to_string(),
+            company: "Renishaw".to_string(),
+            timeframe: "2010-2013".to_string(),
+            descriptions: vec![]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
+            title: "Design Engineer".to_string(),
+            company: "Caterpillar".to_string(),
+            timeframe: "2006-2009".to_string(),
+            descriptions: vec![]
+        }
+    ];
+    let educatorExperiences = [
+        Experience {
+            focus: Focus::EDUCATOR,
+            title: "Volunteer Mentor & Team Leader".to_string(),
+            company: "FIRST Robotics".to_string(),
+            timeframe: "2008-2009, 2022-Present".to_string(),
+            descriptions: vec![]
+        },
+        Experience {
+            focus: Focus::EDUCATOR,
+            title: "Adjunct Professor".to_string(),
+            company: "Aurora University".to_string(),
+            timeframe: "2017".to_string(),
+            descriptions: vec![]
+        },
+        Experience {
+            focus: Focus::EDUCATOR,
+            title: "Graduate Assistant".to_string(),
+            company: "Northern Illinois University".to_string(),
+            timeframe: "2009-2010".to_string(),
+            descriptions: vec![]
+        },
+        Experience {
+            focus: Focus::EDUCATOR,
+            title: "Peer Tutor".to_string(),
+            company: "Northern Illinois University".to_string(),
+            timeframe: "2003-2005".to_string(),
+            descriptions: vec![]
+        }
+    ];
+    let entrepreneurExperiences = [
+        Experience {
+            focus: Focus::ENTREPRENEUR,
+            title: "Co-founder".to_string(),
+            company: "NavAbility".to_string(),
+            timeframe: "2020-2022".to_string(),
+            descriptions: vec![
+                "Managed operations, cost, project planning and uptime of cloud product".to_string(),
+                "Collaborated on submissions for grants and venture capital funding".to_string()
+            ]
+        },    
+        Experience {
+            focus: Focus::ENTREPRENEUR,
+            title: "Product Manager".to_string(),
+            company: "GE Digital".to_string(),
+            timeframe: "2017-2019".to_string(),
+            descriptions: vec![
+                "Developed the global strategy for providing expertise-based, continuous consulting services for GE customers".to_string(),
+                "Provided support for marketing, sales, and new product introductions".to_string(),
+                "Managed two scrums teams developing cloud software for industrial customers".to_string()
+            ]
+        },
+        Experience {
+            focus: Focus::ENTREPRENEUR,
+            title: "Founder".to_string(),
+            company: "Spark Hill, LLC".to_string(),
+            timeframe: "2014-2015".to_string(),
+            descriptions: vec![]
+        },
+        Experience {
+            focus: Focus::ENTREPRENEUR,
+            title: "Volunteer Event Chairman".to_string(),
+            company: "American Cancer Society".to_string(),
+            timeframe: "2008-2010".to_string(),
+            descriptions: vec![]
+        }
+    ];
+    let skills = skills();
+    view! {
+        <div class="bg-amber-50 min-h-screen m-0 p-0 text-slate-600">
+            <div class="print:hidden pt-12"></div>
+            <div class="print:border-0 print:shadow-none container min-h-screen m-auto grid grid-cols-12 border-2 shadow-lg">
+                <div class="bg-blue-600 col-span-3 p-2 text-white">
+                    <div class="container grid grid-cols-4">
+                        <div class="col-span-4 text-center p-5">
+                            <img class="rounded-full bg-center border-4 border-white" src="images/headshot_2023.jpg"/>
+                        </div>
+                        <div class="print:text-[12px] col-span-4 text-center font-medium">
+                            "1.630.212.9727" <br/>
+                            "jim.hill.r@gmail.com" <br/>
+                            "Github: jim-hill-r" <br/>
+                            "LinkedIn: jimhillr" <br/>
+                            <br/>
+                            "Be better, build better." <br/>
+                        </div>
+                        <div class="print:text-[10px] mt-2 col-span-4 text-left text-sm">
+                            <h2 class="text-2xl font-semibold"> "Education" </h2>
+                            <hr/>
+                        </div>
+                        <div class="print:text-[10px] print:leading-tight pt-2 col-span-4 text-sm">
+                            <p class="float-left"> "Masters of Science" </p>
+                            <p class="float-right"> "3.9/4.0 GPA" </p>
+                            <p class="float-left"> "Computer Science" </p>
+                            <p class="float-right"> "2016" </p>
+                            <p class="float-left"> "Georgia Institute of Technology" </p>
+                        </div>
+                        <div class="print:text-[10px] print:leading-tight pt-2 col-span-4 text-sm">
+                            <p class="float-left"> "Masters of Science" </p>
+                            <p class="float-right"> "3.9/4.0 GPA" </p>
+                            <p class="float-left"> "Mechanical Engineering" </p>
+                            <p class="float-right"> "2014" </p>
+                            <p class="float-left"> "Northern Illinois University" </p>
+                        </div>
+                        <div class="print:text-[10px] print:leading-tight pt-2 col-span-4 text-sm">
+                            <p class="float-left"> "Bachelors of Science" </p>
+                            <p class="float-right"> "3.9/4.0 GPA" </p>
+                            <p class="float-left"> "Mechanical Engineering" </p>
+                            <p class="float-right"> "2006" </p>
+                            <p class="float-left"> "Northern Illinois University" </p>
+                        </div>
+                        <div class="print:text-[10px] mt-2 col-span-4 text-left text-sm">
+                            <h2 class="text-2xl font-semibold"> "Skills" </h2>
+                            <hr/>
+                        </div>
+                        <div class="col-span-4">
+                            {skills.into_iter()
+                                .map(|group| view! {
+                                    <div class="print:leading-tight pt-2 flex flex-wrap">
+                                    {
+                                        group.into_iter()
+                                            .map(|skill| view! {
+                                                {if skill.emphasis {
+                                                    view! {<div class="print:leading-tight print:text-[10px] text-sm pr-2 font-semibold"> {skill.keyword} </div>}
+                                                } else {
+                                                    view! {<div class="print:leading-tight print:text-[10px] text-sm pr-2"> {skill.keyword} </div>}
+                                                }}
+                                                
+                                            }).collect::<Vec<_>>()
+                                    }
+                                    </div>
+                                }).collect::<Vec<_>>()}
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="bg-white p-2 col-span-9">
+                    <div class="container grid grid-cols-4 items-end p-2">
+                        <div class="print:leading-tight print:text-[32px] col-span-1 text-left font-semibold text-5xl text-blue-600">
+                            "Jim Hill"
+                        </div>
+                        <div class="print:leading-tight print:text-[18px] col-span-1 text-left font-medium text-2xl text-blue-600">
+                            "Engineer"
+                        </div>
+                        <div class="print:leading-tight print:text-[18px] col-span-1 text-left font-medium text-2xl text-blue-600">
+                            "Educator"
+                        </div>
+                        <div class="print:leading-tight print:text-[18px] col-span-1 text-left font-medium text-2xl text-blue-600">
+                            "Entrepreneur"
+                        </div>
+                        <div class="print:leading-tight print:text-[10px] mt-2 col-span-4 text-left text-sm">
+                            <h2 class="print:leading-tight text-2xl font-semibold text-slate-600"> "Summary" </h2>
+                            <hr/>
+                            <p class="print:leading-tight">
+                            "I have more than 15 years of experience in software, mechanical, and manufacturing engineering in industries including software tech, healthcare, education, automotive, mining, aviation and power generation. "
+                            "During my career, I have held roles as a design engineer, applications engineer, software developer, and software engineer at Caterpillar, Renishaw, GE Digital, and IMO respectively. Recently I have been a principal software engineer and infrastructure team lead at two startups, NavAbility and JuliaHub. Combining this experience with a pair of Master's Degrees in Mechanical and Software Engineering allows me to provide a comprehensive view of how digital technology can help solve the real challenges faced by a modern internet."
+                            </p>
+                        </div>
+                        <div class="print:leading-tight print:text-[10px] print:leading-tight mt-2 col-span-4 text-left text-sm">
+                            <h2 class="print:leading-tight text-2xl font-semibold text-slate-600"> "Experience as an Engineer" </h2>
+                            <hr/>
+                            {engineerExperiences.into_iter()
+                                .map(|experience| view! {
+                                    <div class="print:leading-tight mt-0 col-span-4">
+                                        <div class="print:leading-tight flow-root">  
+                                            <h3 class="print:leading-tight print:text-[12px] text-base font-medium float-left">{experience.company}" | "{experience.title} </h3>
+                                            <p class="print:leading-tight text-right"> {experience.timeframe} </p>
+                                        </div>
+                                        <ul>
+                                        {experience.descriptions.into_iter()
+                                            .map(|description| view! {
+                                                <li class="print:leading-tight print:text-[10px] text-sm pl-3"> {description} </li>
+                                            }).collect::<Vec<_>>()}
+                                        </ul>
+                                    </div>
+                                }).collect::<Vec<_>>()}
+                        </div>
+                        <div class="print:leading-tight print:text-[10px] mt-2 col-span-4 text-left text-sm">
+                            <h2 class="print:leading-tight text-2xl font-semibold text-slate-600"> "Experience as an Educator" </h2>
+                            <hr/>
+                            {educatorExperiences.into_iter()
+                                .map(|experience| view! {
+                                    <div class="print:leading-tight col-span-4">
+                                        <div class="print:leading-tight flow-root">  
+                                            <h3 class="print:leading-tight print:text-[12px] text-base font-medium float-left">{experience.company}" | "{experience.title} </h3>
+                                            <p class="print:leading-tight text-right"> {experience.timeframe} </p>
+                                        </div>
+                                        <ul>
+                                        {
+                                            experience.descriptions.into_iter()
+                                                .map(|description| view! {
+                                                    <li class="print:leading-tight print:text-[10px] text-sm pl-3"> {description} </li>
+                                                }).collect::<Vec<_>>()
+                                        }
+                                        </ul>
+                                    </div>
+                                }).collect::<Vec<_>>()}
+                        </div>
+                        <div class="print:leading-tight print:text-[10px] mt-2 col-span-4 text-left text-sm">
+                            <h2 class="print:leading-tight text-2xl font-semibold text-slate-600"> "Experience as an Entrepreneur" </h2>
+                            <hr/>
+                            {entrepreneurExperiences.into_iter()
+                                .map(|experience| view! {
+                                    <div class="print:leading-tight mt-0 col-span-4">
+                                        <div class="print:leading-tight flow-root">  
+                                            <h3 class="print:leading-tight print:text-[12px] text-base font-medium float-left">{experience.company}" | "{experience.title} </h3>
+                                            <p class="print:leading-tight text-right"> {experience.timeframe} </p>
+                                        </div>
+                                        <ul>
+                                        {
+                                            experience.descriptions.into_iter()
+                                                .map(|description| view! {
+                                                    <li class="print:leading-tight print:text-[10px] text-sm pl-3"> {description} </li>
+                                                }).collect::<Vec<_>>()
+                                        }
+                                        </ul>
+                                    </div>
+                                }).collect::<Vec<_>>()}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+struct Skill {
+    keyword: String,
+    emphasis: bool
+}
+
+fn skills() -> Vec<Vec<Skill>> {
+vec![
+  vec![
+    Skill{keyword:"HTML".to_string(), emphasis:true},
+    Skill{keyword:"CSS".to_string(), emphasis:true},
+    Skill{keyword:"JS".to_string(), emphasis:true},
+    Skill{keyword:"Node".to_string(), emphasis:true},
+    Skill{keyword:"OAuth2".to_string(), emphasis:false},
+    Skill{keyword:"Angular".to_string(), emphasis:false},
+    Skill{keyword:"VueJS".to_string(), emphasis:false},
+    Skill{keyword:"React".to_string(), emphasis:true},
+    Skill{keyword:"GraphQL".to_string(), emphasis:true},
+    Skill{keyword:"Gatsby".to_string(), emphasis:false},
+    Skill{keyword:"Astro".to_string(), emphasis:true},
+    Skill{keyword:"Leptos".to_string(), emphasis:true},
+  ],
+  vec![
+    Skill{keyword:"AWS".to_string(), emphasis:true},
+    Skill{keyword:"Linux".to_string(), emphasis:false},
+    Skill{keyword:"Docker".to_string(), emphasis:false},
+    Skill{keyword:"Kubernetes".to_string(), emphasis:true},
+    Skill{keyword:"Bash".to_string(), emphasis:false},
+    Skill{keyword:"DevOps".to_string(), emphasis:false},
+    Skill{keyword:"GH Actions".to_string(), emphasis:false},
+    Skill{keyword:"Terraform".to_string(), emphasis:true},
+    Skill{keyword:"Packer".to_string(), emphasis:true},
+    Skill{keyword:"Fluentbit".to_string(), emphasis:false},
+  ],
+  vec![
+    Skill{keyword:"SQL".to_string(), emphasis:false},
+    Skill{keyword:"Neo4j".to_string(), emphasis:false},
+    Skill{keyword:"Redis".to_string(), emphasis:false},
+    Skill{keyword:"DynamoDB".to_string(), emphasis:false},
+    Skill{keyword:"ElasticSearch".to_string(), emphasis:false},
+    Skill{keyword:"Postgres".to_string(), emphasis:true},
+    Skill{keyword:"Redpanda".to_string(), emphasis:false}
+  ],
+  vec![
+    Skill{keyword:"Julia".to_string(), emphasis:true},
+    Skill{keyword:"Python".to_string(), emphasis:false},
+    Skill{keyword:"R".to_string(), emphasis:false},
+    Skill{keyword:"Matlab".to_string(), emphasis:false},
+    Skill{keyword:"Machine Learning".to_string(), emphasis:false},
+    Skill{keyword:"Spark".to_string(), emphasis:false},
+    Skill{keyword:"Rust".to_string(),emphasis:true}
+  ],
+  vec![
+    Skill{keyword:"Microsoft".to_string(), emphasis:false},
+    Skill{keyword:"C#".to_string(), emphasis:false},
+    Skill{keyword:".NET Core".to_string(), emphasis:false},
+    Skill{keyword:"Azure".to_string(), emphasis:false},
+    Skill{keyword:"Windows".to_string(), emphasis:false},
+    Skill{keyword:"Powershell".to_string(), emphasis:false}
+  ],
+  vec![
+    Skill{keyword:"Dynamics".to_string(), emphasis:false},
+    Skill{keyword:"Vibrations".to_string(), emphasis:false},
+    Skill{keyword:"Controls".to_string(), emphasis:false},
+    Skill{keyword:"FMEA".to_string(), emphasis:false},
+    Skill{keyword:"Powertrain".to_string(), emphasis:false},
+    Skill{keyword:"GD&T".to_string(), emphasis:false}
+  ],
+  vec![
+    Skill{keyword:"Power Generation".to_string(), emphasis:false},
+    Skill{keyword:"Turbines".to_string(), emphasis:false},
+    Skill{keyword:"Reciprocating Engines".to_string(), emphasis:false},
+    Skill{keyword:"HRSG".to_string(), emphasis:false}
+  ],
+  vec![
+    Skill{keyword:"Leadership Training".to_string(), emphasis:false},
+    Skill{keyword:"Certified Tutor".to_string(), emphasis:false},
+    Skill{keyword:"Eagle Scout".to_string(), emphasis:true}
+  ]
+]
 }

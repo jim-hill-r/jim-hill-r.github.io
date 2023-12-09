@@ -226,7 +226,9 @@ fn Resume() -> impl IntoView {
             company: "JuliaHub".to_string(),
             timeframe: "2023-Present".to_string(),
             descriptions: vec![
-                "Manage and coordinate work for the infrastructure team for the core platform.".to_string()
+                "Assumed role of people manager for the core platform infrastructure team while continuing cloud engineer role".to_string(),
+                "Maintained backlog and groomed support tickets and issues for team".to_string(),
+                "Point of contact for sales engineering, developers, and SOC2 compliance ensuring reliable architecture and coordinated upgrades".to_string()
             ]
         },
         Experience {
@@ -235,7 +237,9 @@ fn Resume() -> impl IntoView {
             company: "JuliaHub".to_string(),
             timeframe: "2022-Present".to_string(),
             descriptions: vec![
-                "Build, architect, and operate the AWS and Kubernetes for the core platform.".to_string()
+                "Responsible for site reliability for public, multi-tenant, single-tenant, and on-premise platform installations via Grafana alerting, observability and on-call rotations".to_string(),
+                "Implemented infrastructure improvements including CIS best practices; CICD for terraform, ansible, kustomize and custom Julia scripts; custom fluentbit logging solution; golden AMIs with Packer; and Stripe billing integrations".to_string(),
+                "Owned AWS security (SSO/IAM) access while improving developer experience with tools such as Tilt and Github Actions.".to_string()
             ]
         },
         Experience {
@@ -393,24 +397,24 @@ organization".to_string(),
                             "Be better, build better." <br/>
                         </div>
                         <div class="print:text-[10px] mt-2 col-span-4 text-left text-sm">
-                            <h2 class="text-2xl font-semibold"> "Education" </h2>
+                            <h2 class="text-2xl pl-2 font-semibold"> "Education" </h2>
                             <hr/>
                         </div>
-                        <div class="print:text-[10px] print:leading-tight pt-2 col-span-4 text-sm">
+                        <div class="print:text-[10px] print:leading-tight p-2 col-span-4 text-sm">
                             <p class="float-left"> "Masters of Science" </p>
                             <p class="float-right"> "3.9/4.0 GPA" </p>
                             <p class="float-left"> "Computer Science" </p>
                             <p class="float-right"> "2016" </p>
                             <p class="float-left"> "Georgia Institute of Technology" </p>
                         </div>
-                        <div class="print:text-[10px] print:leading-tight pt-2 col-span-4 text-sm">
+                        <div class="print:text-[10px] print:leading-tight p-2 col-span-4 text-sm">
                             <p class="float-left"> "Masters of Science" </p>
                             <p class="float-right"> "3.9/4.0 GPA" </p>
                             <p class="float-left"> "Mechanical Engineering" </p>
                             <p class="float-right"> "2014" </p>
                             <p class="float-left"> "Northern Illinois University" </p>
                         </div>
-                        <div class="print:text-[10px] print:leading-tight pt-2 col-span-4 text-sm">
+                        <div class="print:text-[10px] print:leading-tight p-2 col-span-4 text-sm">
                             <p class="float-left"> "Bachelors of Science" </p>
                             <p class="float-right"> "3.9/4.0 GPA" </p>
                             <p class="float-left"> "Mechanical Engineering" </p>
@@ -418,13 +422,13 @@ organization".to_string(),
                             <p class="float-left"> "Northern Illinois University" </p>
                         </div>
                         <div class="print:text-[10px] mt-2 col-span-4 text-left text-sm">
-                            <h2 class="text-2xl font-semibold"> "Skills" </h2>
+                            <h2 class="text-2xl pl-2 font-semibold"> "Skills" </h2>
                             <hr/>
                         </div>
                         <div class="col-span-4">
                             {skills.into_iter()
                                 .map(|group| view! {
-                                    <div class="print:leading-tight pt-2 flex flex-wrap">
+                                    <div class="print:leading-tight p-2 pb-0 flex flex-wrap">
                                     {
                                         group.into_iter()
                                             .map(|skill| view! {
@@ -472,7 +476,7 @@ organization".to_string(),
                                     <div class="print:leading-tight mt-0 col-span-4">
                                         <div class="print:leading-tight flow-root">  
                                             <h3 class="print:leading-tight print:text-[12px] text-base font-medium float-left">{experience.company}" | "{experience.title} </h3>
-                                            <p class="print:leading-tight text-right"> {experience.timeframe} </p>
+                                            <p class="print:leading-tight text-right pr-2"> {experience.timeframe} </p>
                                         </div>
                                         <ul>
                                         {experience.descriptions.into_iter()
@@ -491,7 +495,7 @@ organization".to_string(),
                                     <div class="print:leading-tight col-span-4">
                                         <div class="print:leading-tight flow-root">  
                                             <h3 class="print:leading-tight print:text-[12px] text-base font-medium float-left">{experience.company}" | "{experience.title} </h3>
-                                            <p class="print:leading-tight text-right"> {experience.timeframe} </p>
+                                            <p class="print:leading-tight text-right pr-2"> {experience.timeframe} </p>
                                         </div>
                                         <ul>
                                         {
@@ -512,7 +516,7 @@ organization".to_string(),
                                     <div class="print:leading-tight mt-0 col-span-4">
                                         <div class="print:leading-tight flow-root">  
                                             <h3 class="print:leading-tight print:text-[12px] text-base font-medium float-left">{experience.company}" | "{experience.title} </h3>
-                                            <p class="print:leading-tight text-right"> {experience.timeframe} </p>
+                                            <p class="print:leading-tight text-right pr-2"> {experience.timeframe} </p>
                                         </div>
                                         <ul>
                                         {
@@ -542,7 +546,8 @@ vec![
   vec![
     Skill{keyword:"HTML".to_string(), emphasis:true},
     Skill{keyword:"CSS".to_string(), emphasis:true},
-    Skill{keyword:"JS".to_string(), emphasis:true},
+    Skill{keyword:"Javascript".to_string(), emphasis:false},
+    Skill{keyword:"Typescript".to_string(), emphasis:true},
     Skill{keyword:"Node".to_string(), emphasis:true},
     Skill{keyword:"OAuth2".to_string(), emphasis:false},
     Skill{keyword:"Angular".to_string(), emphasis:false},
@@ -558,12 +563,17 @@ vec![
     Skill{keyword:"Linux".to_string(), emphasis:false},
     Skill{keyword:"Docker".to_string(), emphasis:false},
     Skill{keyword:"Kubernetes".to_string(), emphasis:true},
+    Skill{keyword:"Kustomize".to_string(), emphasis:true},
     Skill{keyword:"Bash".to_string(), emphasis:false},
     Skill{keyword:"DevOps".to_string(), emphasis:false},
-    Skill{keyword:"GH Actions".to_string(), emphasis:false},
+    Skill{keyword:"Github Actions".to_string(), emphasis:false},
     Skill{keyword:"Terraform".to_string(), emphasis:true},
     Skill{keyword:"Packer".to_string(), emphasis:true},
     Skill{keyword:"Fluentbit".to_string(), emphasis:false},
+    Skill{keyword:"Ansible".to_string(), emphasis:true},
+    Skill{keyword:"Infra as Code".to_string(), emphasis:false},
+    Skill{keyword:"SOC2".to_string(), emphasis:false},
+    Skill{keyword:"Cloud Foundry".to_string(), emphasis:false}
   ],
   vec![
     Skill{keyword:"SQL".to_string(), emphasis:false},
@@ -572,11 +582,14 @@ vec![
     Skill{keyword:"DynamoDB".to_string(), emphasis:false},
     Skill{keyword:"ElasticSearch".to_string(), emphasis:false},
     Skill{keyword:"Postgres".to_string(), emphasis:true},
-    Skill{keyword:"Redpanda".to_string(), emphasis:false}
+    Skill{keyword:"Redpanda".to_string(), emphasis:false},
+    Skill{keyword:"EFS".to_string(), emphasis:false},
+    Skill{keyword:"S3".to_string(), emphasis:true}
   ],
   vec![
     Skill{keyword:"Julia".to_string(), emphasis:true},
     Skill{keyword:"Python".to_string(), emphasis:false},
+    Skill{keyword:"Java".to_string(), emphasis:false},
     Skill{keyword:"R".to_string(), emphasis:false},
     Skill{keyword:"Matlab".to_string(), emphasis:false},
     Skill{keyword:"Machine Learning".to_string(), emphasis:false},
@@ -606,6 +619,7 @@ vec![
     Skill{keyword:"HRSG".to_string(), emphasis:false}
   ],
   vec![
+    Skill{keyword:"UChicago New Venture Challenge".to_string(), emphasis:false},
     Skill{keyword:"Leadership Training".to_string(), emphasis:false},
     Skill{keyword:"Certified Tutor".to_string(), emphasis:false},
     Skill{keyword:"Eagle Scout".to_string(), emphasis:true}

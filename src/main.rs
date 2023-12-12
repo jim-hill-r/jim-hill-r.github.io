@@ -406,6 +406,7 @@ organization".to_string(),
                             <p class="float-left"> "Computer Science" </p>
                             <p class="float-right"> "2016" </p>
                             <p class="float-left"> "Georgia Institute of Technology" </p>
+                            <p class="float-left"> "Machine Learning Specialization" </p>
                         </div>
                         <div class="print:text-[10px] print:leading-tight p-2 col-span-4 text-sm">
                             <p class="float-left"> "Masters of Science" </p>

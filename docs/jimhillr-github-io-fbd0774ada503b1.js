@@ -772,7 +772,7 @@ async function __wbg_init(input) {
     if (wasm !== undefined) return wasm;
 
     if (typeof input === 'undefined') {
-        input = new URL('jimhillr-github-io-7fdc164fb18a8aa9_bg.wasm', import.meta.url);
+        input = new URL('jimhillr-github-io-fbd0774ada503b1_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 

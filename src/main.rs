@@ -24,6 +24,8 @@ fn main() {
         <Router>
             <Routes>
                 <Route path="/" view=Home/>
+                <Route path="/todo" view=Todo/>
+                <Route path="/bookmarks" view=Bookmark/>
                 <Route path="/resume" view=Resume/>
                 <Route path="/*any" view=|| view! { <h1>"Not Found"</h1> }/>
             </Routes>
@@ -626,4 +628,48 @@ vec![
     Skill{keyword:"Eagle Scout".to_string(), emphasis:true}
   ]
 ]
+}
+
+#[component]
+fn Bookmark() -> impl IntoView {
+    view! {
+        <div class="bg-amber-50 min-h-screen m-0 p-0 text-slate-600">
+            "My Stuff"
+            <ul>
+                <li> <a href="https://dataluggage.com" target="_blank"> "Future Luggage Home" </a> </li>
+                <li> <a href="https://www.6umby.com" target="_blank"> "Gumby Home" </a> </li>
+                <li> <a href="https://passionfruit.dev" target="_blank"> "Future Passion Fruit Home" </a> </li>
+                <li> <a href="https://blue.eel.education" target="_blank"> "Blue Eel Legacy Home" </a> </li>
+                <li> <a href="https://preview.eel.education" target="_blank"> "Blue Eel Next Generation Home" </a> </li>
+
+                <li> <a href="https://bananapeelsocks.com" target="_blank"> "Our family domain" </a> </li>
+                <li> <a href="https://oobicoin.com" target="_blank"> "Future Oobicoin Home" </a> </li>
+            </ul>
+            <br/>
+            "My Customers"
+            <ul>
+                <li> <a href="https://wildraccoons8891.org" target="_blank"> "Wild Raccoons Home" </a> </li>
+                <li> <a href="https://sparkhill.xyz" target="_blank"> "Spark Hill Home" </a> </li>
+            </ul>
+            <br/>
+            "Social media and personal brand"
+            <ul>
+            <li> <a href="https://www.jimhillr.com" target="_blank"> "My Landing Page" </a> </li>
+                <li> <a href="https://github.com/jim-hill-r" target="_blank"> "Github Profile" </a> </li>
+                <li> <a href="https://www.linkedin.com/in/jimhillr/" target="_blank"> "LinkedIn Profile" </a> </li>
+            </ul>
+        </div>
+    }
+}
+
+#[component]
+fn Todo() -> impl IntoView {
+    view! {
+        <div class="bg-amber-50 min-h-screen m-0 p-0 text-slate-600">
+            <ul>
+                <li> "Add link from landing page to secret todo and bookmarks" </li>
+                <li> "Convert profile content to markdown" </li>
+            </ul>
+        </div>
+    }
 }

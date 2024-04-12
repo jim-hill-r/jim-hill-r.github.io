@@ -10,3 +10,6 @@ leptos = { version = "0.5.2", features = ["csr"] }
 include_dir = "0.7.3"
 markdown = "1.0.0-alpha"
 leptos_router = { version = "0.5.4", features = ["csr"] }
+
+[package.metadata.scripts]
+release = "trunk build && rm -rf docs && mv dist docs"

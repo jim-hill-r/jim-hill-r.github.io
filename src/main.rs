@@ -658,6 +658,10 @@ fn Bookmark() -> impl IntoView {
                 <li> <a href="https://github.com/jim-hill-r" target="_blank"> "Github Profile" </a> </li>
                 <li> <a href="https://www.linkedin.com/in/jimhillr/" target="_blank"> "LinkedIn Profile" </a> </li>
             </ul>
+            "Architecture links"
+            <ul>
+                <li> <a href="https://github.com/orgs/surrealdb/discussions/1275" target="_blank"> "Use surreal in the client" </a> </li>
+            </ul>
         </div>
     }
 }

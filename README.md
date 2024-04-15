@@ -1,4 +1,4 @@
-[![Nightly](https://github.com/jim-hill-r/jim-hill-r.github.io/actions/workflows/nightly.yaml/badge.svg)](https://github.com/jim-hill-r/jim-hill-r.github.io/actions/workflows/nightly.yaml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e2066d58-8a15-43c9-9e9a-9255733919f4/deploy-status)](https://app.netlify.com/sites/jimhillr/deploys)
 
 # jim-hill-r.github.io
 

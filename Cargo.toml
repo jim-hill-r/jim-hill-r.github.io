@@ -11,5 +11,9 @@ include_dir = "0.7.3"
 markdown = "1.0.0-alpha"
 leptos_router = { version = "0.5.4", features = ["csr"] }
 
+[package.metadata.bin]
+cargo-run-script = { version = "0.2.0" }
+trunk = { version = "^0.19" }
+
 [package.metadata.scripts]
 release = "trunk build && rm -rf docs && mv dist docs"

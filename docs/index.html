@@ -6,8 +6,8 @@
 
     
 <script type="module">
-import init, * as bindings from '/jimhillr-github-io-518d4e636b533a13.js';
-init('/jimhillr-github-io-518d4e636b533a13_bg.wasm');
+import init, * as bindings from '/jimhillr-github-io-2ba952fa60fb89bb.js';
+init('/jimhillr-github-io-2ba952fa60fb89bb_bg.wasm');
 window.wasmBindings = bindings;
 
 </script>
@@ -20,6 +20,9 @@ window.wasmBindings = bindings;
     
     
 
+    <!-- CMS requirements -->
+    
+
     <!-- PWA requirements -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="blue">
@@ -28,8 +31,20 @@ window.wasmBindings = bindings;
     
     
   
-<link rel="preload" href="/jimhillr-github-io-518d4e636b533a13_bg.wasm" crossorigin="anonymous" integrity="sha384-2Kq3jz0LztGIgkJ669X6px0tv6ESGhDr7gnhKb/OXwSkO+ytHZrFIi8Du/aiTnPR" as="fetch" type="application/wasm">
-<link rel="modulepreload" href="/jimhillr-github-io-518d4e636b533a13.js" crossorigin="anonymous" integrity="sha384-V+2xgDoNn6GAgGyYPM7K9wSp+1z3IVqTk3dZVCki1A0GseYhwXje55Z/oMstx2Uo"></head>
-  <body>  
+<link rel="preload" href="/jimhillr-github-io-2ba952fa60fb89bb_bg.wasm" crossorigin="anonymous" integrity="sha384-WaxCXM5K1IjlzXKzc/ea8XSkVfZekcJ31a6l3WII8ZxgdCRIS5OtydqEZGgKJXz/" as="fetch" type="application/wasm">
+<link rel="modulepreload" href="/jimhillr-github-io-2ba952fa60fb89bb.js" crossorigin="anonymous" integrity="sha384-jjuVGUyqK6bXTjaG1Zfbjllfct5ufUwNWa9WM5rjPouoWC3oQNE+/OMihHx3geKv"></head>
+  <body>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  
 
 </body></html>

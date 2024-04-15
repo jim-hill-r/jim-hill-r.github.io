@@ -18,4 +18,4 @@ trunk = { version = "^0.19" }
 
 [package.metadata.scripts]
 start = "cargo trunk serve --port 11984"
-release = "cargo trunk build && rm -rf docs && mv dist docs"
+build = "cargo trunk build && rm -rf docs && mv dist docs"

@@ -1,3 +1,4 @@
 [alias]
 binstall = ["bin", "cargo-binstall"]
 run-script = ["bin", "cargo-run-script"]
+trunk = ["bin", "trunk"]

@@ -4,3 +4,4 @@ rustup install stable
 cargo --version
 cargo install cargo-run-bin
 cargo bin --install
+cargo bin --sync-aliases

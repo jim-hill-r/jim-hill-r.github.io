@@ -12,8 +12,10 @@ markdown = "1.0.0-alpha"
 leptos_router = { version = "0.5.4", features = ["csr"] }
 
 [package.metadata.bin]
-cargo-run-script = { version = "0.2.0" }
+cargo-binstall = { version = "^1"}
+cargo-run-script = { version = "^0.2" }
 trunk = { version = "^0.19" }
 
 [package.metadata.scripts]
-release = "trunk build && rm -rf docs && mv dist docs"
+start = "cargo trunk serve --port 11984"
+release = "cargo trunk build && rm -rf docs && mv dist docs"

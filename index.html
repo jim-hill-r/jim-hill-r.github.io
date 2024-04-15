@@ -27,5 +27,17 @@
     <link data-trunk rel="copy-file" href="public/manifest.json" />
     <link data-trunk rel="copy-file" href="public/sw.js" />
   </head>
-  <body>  </body>
+  <body>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
 </html>

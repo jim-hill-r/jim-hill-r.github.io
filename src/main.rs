@@ -1,8 +1,14 @@
+use views::todo::Todo;
+
 use include_dir::{include_dir, Dir};
 use markdown::{ParseOptions, Constructs, Options, to_html_with_options};
 use passionfruitdev::website::Website;
 use leptos::*;
 use leptos_router::*;
+
+pub mod views {
+    pub mod todo;
+}
 
 const CONTENT_DIRECTORY: Dir = include_dir!("./content");
 
@@ -661,18 +667,6 @@ fn Bookmark() -> impl IntoView {
             "Architecture links"
             <ul>
                 <li> <a href="https://github.com/orgs/surrealdb/discussions/1275" target="_blank"> "Use surreal in the client" </a> </li>
-            </ul>
-        </div>
-    }
-}
-
-#[component]
-fn Todo() -> impl IntoView {
-    view! {
-        <div class="bg-amber-50 min-h-screen m-0 p-0 text-slate-600">
-            <ul>
-                <li> "Add link from landing page to secret todo and bookmarks" </li>
-                <li> "Convert profile content to markdown" </li>
             </ul>
         </div>
     }

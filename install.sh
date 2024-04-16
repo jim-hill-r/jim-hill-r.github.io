@@ -1,5 +1,5 @@
-apt-get update
-apt-get install build-essential
+sudo apt-get update
+sudo apt-get install build-essential
 ldd --version
 rustup self update
 rustup update

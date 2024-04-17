@@ -61,31 +61,31 @@ fn Home() -> impl IntoView {
                 Card {
                     title: "Responsible Computing".to_string(),
                     description: "We are in the midst of a data revolution and much like the industrial revolution, software engineers have a responsibility for how it affects our society.".to_string(),
-                    image: "images/responsible-computing.jpg".to_string(),
+                    image: "images/responsible-computing.webp".to_string(),
                     link: None
                 },
                 Card {
                     title: "Health and Wellness".to_string(),
                     description: "Health is a fundamental human right and health data should help individuals not increase the profits of large corporations.".to_string(),
-                    image: "images/health-and-wellness.jpg".to_string(),
+                    image: "images/health-and-wellness.webp".to_string(),
                     link: None
                 },
                 Card {
                     title: "Climate Impact".to_string(),
                     description: "Climate change is the existential crisis of our generation.".to_string(),
-                    image: "images/environmental-impact.jpg".to_string(),
+                    image: "images/environmental-impact.webp".to_string(),
                     link: None
                 },
                 Card {
                     title: "Education Reform".to_string(),
                     description: "Education is not personalized and technology can increase the availability and accessibility of learning to everyone.".to_string(),
-                    image: "images/educational-reform.jpg".to_string(),
+                    image: "images/educational-reform.webp".to_string(),
                     link: None
                 },
                 Card {
                     title: "Financial Freedom".to_string(),
                     description: "Not everyone is an entrepreneur. Creators and builders should be unencumbered by money to enhance their impact on the world!".to_string(),
-                    image: "images/financial-freedom.jpg".to_string(),
+                    image: "images/financial-freedom.webp".to_string(),
                     link: None
                 }
         ]},
@@ -95,7 +95,7 @@ fn Home() -> impl IntoView {
                 Card {
                     title: "Luggage".to_string(),
                     description: "Data does not belong to corporations. It belongs to us. This project hopes to provide an open-source interface for making your data safe, secure and portable.".to_string(),
-                    image: "images/luggage.jpg".to_string(),
+                    image: "images/luggage.webp".to_string(),
                     link: None
                 },
                 Card {
@@ -113,13 +113,13 @@ fn Home() -> impl IntoView {
                 Card {
                     title: "Blue Eel".to_string(),
                     description: "Literacy is the single most important outcome in a child's life. Let's not forget about those who struggle.".to_string(),
-                    image: "images/blue-eel.jpg".to_string(),
+                    image: "images/blue-eel.webp".to_string(),
                     link: Some("https://blue.eel.education".to_string())
                 },
                 Card {
                     title: "Fire".to_string(),
                     description: "Financial planning tools for everyone so they can better understand the consequences of their decisions.".to_string(),
-                    image: "images/fire.jpg".to_string(),
+                    image: "images/fire.webp".to_string(),
                     link: None
                 }
         ]},
@@ -129,25 +129,25 @@ fn Home() -> impl IntoView {
                 Card {
                     title: "Space Exploration".to_string(),
                     description: "I have always been interested in space and I believe that becoming multi-planetary is important for humanity. I just don't know yet how I can help or if it is our most pressing concern.".to_string(),
-                    image: "images/space-exploration.jpg".to_string(),
+                    image: "images/space-exploration.webp".to_string(),
                     link: None
                 },
                 Card {
                     title: "Fitness".to_string(),
                     description: "A sound body is key to a sound mind. Through running, swimming, and climbing I find my peace in a healthy life.".to_string(),
-                    image: "images/fitness.jpg".to_string(),
+                    image: "images/fitness.webp".to_string(),
                     link: None
                 },
                 Card {
                     title: "Natural Beauty".to_string(),
                     description: "I long for the beautiful vistas and natural places in this world. I want to preserve and sustain them for all generations!".to_string(),
-                    image: "images/natural-beauty.jpg".to_string(),
+                    image: "images/natural-beauty.webp".to_string(),
                     link: None
                 },
                 Card {
                     title: "Physics and Math".to_string(),
                     description: "Physics and math have always intrigued me. I would love to just spend all day working on fundamental unsolved problems in this space, but I am neither smart enough or focused enough. Instead, I am working on empowered those who are with financial freedom!".to_string(),
-                    image: "images/physics-and-math.jpg".to_string(),
+                    image: "images/physics-and-math.webp".to_string(),
                     link: None
                 },
                 Card {
@@ -159,7 +159,7 @@ fn Home() -> impl IntoView {
         ]}
     ];
     view! {
-        <div class="bg-[url('images/better-world.jpg')] h-screen bg-cover bg-center shadow-lg rounded-b-3xl">
+        <div class="bg-[url('images/better-world.webp')] h-screen bg-cover bg-center shadow-lg rounded-b-3xl">
             <h1 class="text-8xl text-blue-700 text-right font-bold py-20 pr-10"> "Jim Hill" </h1>
             <p class="text-6xl text-blue-400 text-right p-10"> "Be better, build better." </p>
         </div>
@@ -176,8 +176,8 @@ fn Home() -> impl IntoView {
                             .map(|card| view! {
                                 <div class="">
                                     <a target="_blank" href={card.link}>
-                                    <div class=move || {format!("h-36 bg-cover bg-center rounded-2xl bg-[url('{}')]",card.image)}>
-                                    </div>
+                                    <img class="m-auto h-36 w-36 rounded-2xl" src={card.image} />
+                                    
                                     <div>
                                         <h3 class="text-2xl text-blue-400 text-center p-2 pt-6">{card.title}</h3>
                                         <p class="text-center p-2">
@@ -394,7 +394,7 @@ organization".to_string(),
                 <div class="bg-blue-600 col-span-3 p-2 text-white">
                     <div class="container grid grid-cols-4">
                         <div class="col-span-4 text-center p-5">
-                            <img class="rounded-full bg-center border-4 border-white" src="images/headshot_2023.jpg"/>
+                            <img class="rounded-full bg-center border-4 border-white" src="images/headshot_2023.webp"/>
                         </div>
                         <div class="print:text-[12px] col-span-4 text-center font-medium">
                             "1.630.212.9727" <br/>

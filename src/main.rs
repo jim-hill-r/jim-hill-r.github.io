@@ -1,4 +1,4 @@
-use views::todo::Todo;
+use web::views::todo::Todo;
 
 use include_dir::{include_dir, Dir};
 use markdown::{ParseOptions, Constructs, Options, to_html_with_options};
@@ -6,8 +6,10 @@ use passionfruitdev::website::Website;
 use leptos::*;
 use leptos_router::*;
 
-pub mod views {
-    pub mod todo;
+pub mod web {
+    pub mod views {
+        pub mod todo;
+    }
 }
 
 const CONTENT_DIRECTORY: Dir = include_dir!("./content");

@@ -8,10 +8,10 @@ Personal GitHub profile page
 
 - Install rustup: https://rust-lang.github.io/rustup/installation/index.html
 - Boostrap dev environment: `source install.sh`
-- Serve the website on localhost: `cargo do start`
+- Serve the website on localhost: `cargo do dev-web`
 
 # Create release (for CI)
 
 - Install rustup: https://rust-lang.github.io/rustup/installation/index.html
 - Boostrap dev environment: `source install.sh`
-- Create build artifacts and save to docs folder: `cargo do release`
+- Create build artifacts and save to docs folder: `cargo do build-web`

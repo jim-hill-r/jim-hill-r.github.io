@@ -11,10 +11,14 @@ include_dir = "0.7.3"
 markdown = "1.0.0-alpha"
 leptos_router = { version = "0.5.4", features = ["csr"] }
 
+[build-dependencies]
+webp = { version = "^0.2" }
+image = { version = "^0.25.0" }
+
 [package.metadata.bin]
 cargo-run-script = { version = "^0.2" }
 trunk = { version = "^0.19" }
 
 [package.metadata.scripts]
-start = "cargo trunk serve --port 11984"
-build = "cargo trunk build && rm -rf docs && mv dist docs"
+dev-web = "cargo trunk serve --port 11984"
+build-web = "cargo trunk build && rm -rf docs && mv dist docs"

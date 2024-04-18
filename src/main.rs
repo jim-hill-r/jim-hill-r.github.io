@@ -109,7 +109,7 @@ fn Home() -> impl IntoView {
                 Card {
                     title: "Passion Fruit".to_string(),
                     description: "When encumbered by too many dreams and goals, a platform of tools to accelerate many ideas at once is needed.".to_string(),
-                    image: "images/passion-fruit.png".to_string(),
+                    image: "images/passion-fruit.webp".to_string(),
                     link: None
                 },
                 Card {
@@ -155,7 +155,7 @@ fn Home() -> impl IntoView {
                 Card {
                     title: "FIRST Robotics".to_string(),
                     description: "Mentoring the next generation into being well rounded, thoughtful engineers brings me endless joy. ".to_string(),
-                    image: "images/robotics-and-automation.jpg".to_string(),
+                    image: "images/robotics-and-automation.webp".to_string(),
                     link: Some("http://wildraccoons8891.org/".to_string())
                 }
         ]}

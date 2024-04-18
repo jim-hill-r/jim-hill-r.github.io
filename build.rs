@@ -24,7 +24,8 @@ fn main() {
                                 if !output_path.exists() {
                                     let (w, h) = img.dimensions();
 
-                                    let size_factor = 1.0;
+                                    let min = std::cmp::min(w, h) as f64;
+                                    let size_factor = 256.0 / min;
                                     let img: DynamicImage =
                                         image::DynamicImage::ImageRgba8(imageops::resize(
                                             &img,
@@ -34,8 +35,8 @@ fn main() {
                                         ));
 
                                     let encoder: Encoder = Encoder::from_image(&img).unwrap();
-                                    // Encode the image at a lossless quality of 9
-                                    let webp: WebPMemory = encoder.encode(9f32);
+                                    // Encode the image at a lossy quality of 90
+                                    let webp: WebPMemory = encoder.encode(90f32);
                                     let output_path = Path::new(OPTIMIZED_IMAGES_DIRECTORY)
                                         .join(filestem)
                                         .with_extension("webp");

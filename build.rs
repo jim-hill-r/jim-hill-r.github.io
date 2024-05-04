@@ -16,9 +16,9 @@ fn main() {
 fn optimize_images() {
     // Optimize images to webp
     let run_image_optimization = env::var(RUN_IMAGE_OPTIMIZATION_ENV_VAR)
-        .unwrap_or(String::from("true"))
+        .unwrap_or(String::from("false"))
         .parse::<bool>()
-        .unwrap_or(true);
+        .unwrap_or(false);
 
     if !run_image_optimization {
         return;

@@ -1,18 +1,25 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
 
-    <title>Jim Hill R</title>
-    <meta name="description" content="Jim Hill's Personal Page">
+    <title>Jim Hill</title>
+    <meta name="description" content="Be better. Build better.">
 
     
 <script type="module">
-import init, * as bindings from '/jimhillr-github-io-b84f0c565d0cd2a9.js';
-init('/jimhillr-github-io-b84f0c565d0cd2a9_bg.wasm');
+import init, * as bindings from '/jimhillr-github-io-d326183dca5080ab.js';
+const wasm = await init('/jimhillr-github-io-d326183dca5080ab_bg.wasm');
+
+
 window.wasmBindings = bindings;
 
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
 </script>
-    <link rel="stylesheet" href="/tailwind-822136f47daf2064.css" integrity="sha384-MA347vnUtmJaJqOwB3Dm9CTAeLmYDNKNJqffhJXZ4BvAowiry6MhVJ9NEMEYnclJ">
-    <link rel="icon" href="/favicon-b8869e2c0af36253.ico" integrity="sha384-60o2io/jGlLTAk0ThnWHklECJuHjL0W7TyeWkPl2KG0d5mSWAfyfw0UDg2IpXVna">
+    <link rel="stylesheet" href="/tailwind-822136f47daf2064.css" integrity="sha384&#x2D;MA347vnUtmJaJqOwB3Dm9CTAeLmYDNKNJqffhJXZ4BvAowiry6MhVJ9NEMEYnclJ"/>
+    <link rel="icon" href="/favicon-b8869e2c0af36253.ico" integrity="sha384&#x2D;60o2io&#x2F;jGlLTAk0ThnWHklECJuHjL0W7TyeWkPl2KG0d5mSWAfyfw0UDg2IpXVna"/>
     
     
     
@@ -24,14 +31,14 @@ window.wasmBindings = bindings;
 
     <!-- PWA requirements -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="blue">
-    <link rel="“manifest”" href="“manifest.json”">
+    <meta name="theme-color" content="blue"/>
+    <link rel= “manifest” href=“manifest.json” />
     
     
     
   
-<link rel="preload" href="/jimhillr-github-io-b84f0c565d0cd2a9_bg.wasm" crossorigin="anonymous" integrity="sha384-0huQWD1MeX4JRb07zprmPqnaZtDPc08K0OOlbAhS8K3sNbnh4LxLaI3MZoqoPy66" as="fetch" type="application/wasm">
-<link rel="modulepreload" href="/jimhillr-github-io-b84f0c565d0cd2a9.js" crossorigin="anonymous" integrity="sha384-QTILiHXveZwOzhMTxmOcjdr8ZDyjEj3ft+nZkwAHdGbF3in1RSXugVNKJVt0oIBo"></head>
+<link rel="modulepreload" href="/jimhillr-github-io-d326183dca5080ab.js" crossorigin=anonymous integrity="sha384-ub6qCLiaaTsAFTiGfdz6K2FPAiwnKzaIgeZFEUrUiH5+nenYMvDXR5nHeflax1cU">
+<link rel="preload" href="/jimhillr-github-io-d326183dca5080ab_bg.wasm" crossorigin=anonymous integrity="sha384-c62qD3ZgnEP4CeWbXPZuYPSp4yLDHJL4Y8AfFsC3WnUsbCNYUpYYLhcY7eN1so0L" as="fetch" type="application/wasm"></head>
   <body>
     <script>
       if (window.netlifyIdentity) {
@@ -44,6 +51,5 @@ window.wasmBindings = bindings;
         });
       }
     </script>
-  
-
-</body></html>
+  </body>
+</html>

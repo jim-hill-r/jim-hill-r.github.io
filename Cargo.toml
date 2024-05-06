@@ -4,21 +4,115 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 
+[lib]
+crate-type = ["cdylib", "rlib"]
+
 [dependencies]
-passionfruitdev = { version = "0", features = ["website"]}
-leptos = { version = "0.5.2", features = ["csr"] }
-include_dir = "0.7.3"
+actix-files = { version = "0.6", optional = true }
+actix-web = { version = "4", optional = true, features = ["macros"] }
+console_error_panic_hook = { version = "0.1", optional = true }
+console_log = { version = "1", optional = true }
+futures = { version = "0.3", optional = true }
+gloo-net = { version = "0.2", features = ["http"] }
+http = { version = "1.0.0", optional = true }
+include_dir = "^0.7"
+leptos = "0.6"
+leptos_actix = { version = "0.6", optional = true }
+leptos_meta = "0.6"
+leptos_router = "0.6"
+log = "0.4"
 markdown = "1.0.0-alpha"
-leptos_router = { version = "0.5.4", features = ["csr"] }
+simple_logger = { version = "4.0", optional = true }
+wasm-bindgen = { version = "=0.2.92", optional = true }
 
 [build-dependencies]
-webp = { version = "^0.2" }
-image = { version = "^0.25.0" }
+webp = { version = "^0.3" }
+image = { version = "^0.25" }
+
+[features]
+mpa = [
+  "dep:actix-files",
+  "dep:actix-web",
+  "dep:futures",
+  "dep:leptos_actix",
+  "dep:simple_logger",
+  "leptos/nightly",
+  "leptos_router/nightly",
+  "leptos_meta/nightly",
+  "leptos/experimental-islands",
+  "leptos_actix/experimental-islands",
+  "leptos/ssr",
+  "leptos_meta/ssr",
+  "leptos_router/ssr",
+]
+spa = [
+  "dep:wasm-bindgen",
+  "dep:console_log",
+  "dep:console_error_panic_hook",
+  "leptos/nightly",
+  "leptos_router/nightly",
+  "leptos_meta/nightly",
+  "leptos/csr",
+  "leptos_meta/csr",
+  "leptos_router/csr",
+]
+ssr = [
+  "dep:actix-files",
+  "dep:actix-web",
+  "dep:futures",
+  "dep:leptos_actix",
+  "dep:simple_logger",
+  "leptos/nightly",
+  "leptos_router/nightly",
+  "leptos_meta/nightly",
+  "leptos/experimental-islands",
+  "leptos_actix/experimental-islands",
+  "leptos/ssr",
+  "leptos_meta/ssr",
+  "leptos_router/ssr",
+]
+ssh = [
+  "dep:wasm-bindgen",
+  "dep:console_log",
+  "dep:console_error_panic_hook",
+  "leptos/nightly",
+  "leptos_router/nightly",
+  "leptos_meta/nightly",
+  "leptos/hydrate",
+  "leptos_meta/hydrate",
+  "leptos_router/hydrate",
+]
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
 
 [package.metadata.bin]
 cargo-run-script = { version = "^0.2" }
-trunk = { version = "^0.19" }
+trunk = { version = "^0.20" }
 
 [package.metadata.scripts]
-dev-web = "cargo trunk serve --port 11984"
-build-web = "cargo trunk build && rm -rf docs && mv dist docs"
+dev-web-mpa = "cargo leptos watch --bin-features mpa"
+dev-web-ssh = "cargo leptos watch --bin-features mpa"
+dev-web-spa = "cargo trunk serve --features spa --port 11984 "
+dev-web-ssr = "cargo leptos watch --bin-features mpa"
+dev-web = "cargo do dev-web-ssh"
+build-web-mpa = "rm -rf dist && cargo leptos build --bin-features mpa"
+build-web-ssh = "rm -rf dist && cargo leptos build --bin-features ssh"
+build-web-spa = "rm -rf dist && cargo trunk build --features spa && rm -rf docs && mv dist docs"
+build-web-ssr = "rm -rf dist && cargo leptos build --bin-features ssr"
+build-web = "cargo do build-web-spa"
+
+[package.metadata.leptos]
+output-name = "jim-hill-r"
+site-root = "dist"
+assets-dir = "public"
+tailwind-input-file = "tailwind.css"
+browserquery = "defaults"
+site-addr = "127.0.0.1:11984"
+reload-port = 11983
+env = "DEV"
+lib-profile-release = "wasm-release"

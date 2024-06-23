@@ -1,0 +1,16 @@
+[package]
+name = "ssr"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+app = { path = "../app" }
+actix-files = { version = "0.6" }
+actix-web = { version = "4", features = ["macros"] }
+futures = { version = "0.3" }
+leptos = { version = "0.6", features = ["nightly", "ssr"] }
+leptos_actix = { version = "0.6" }
+leptos_meta = { version = "0.6", features = ["nightly", "ssr"] }
+leptos_router = { version = "0.6", features = ["nightly", "ssr"] }
+simple_logger = { version = "4.0" }

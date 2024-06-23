@@ -1,24 +1,37 @@
-[package]
-name = "jimhillr-github-io"
-version = "0.1.0"
-edition = "2021"
-publish = false
+[workspace]
+members = [
+    "app",
+    "mpa",
+    "spa",
+    "ssh",
+    "ssr"
+]
+resolver = "2"
 
-[dependencies]
-passionfruitdev = { version = "0", features = ["website"]}
-leptos = { version = "0.5.2", features = ["csr"] }
-include_dir = "0.7.3"
-markdown = "1.0.0-alpha"
-leptos_router = { version = "0.5.4", features = ["csr"] }
-
-[build-dependencies]
-webp = { version = "^0.2" }
-image = { version = "^0.25.0" }
-
-[package.metadata.bin]
+[workspace.metadata.bin]
 cargo-run-script = { version = "^0.2" }
-trunk = { version = "^0.19" }
+cargo-leptos = { version = "^0.2" }
+trunk = { version = "^0.20" }
 
-[package.metadata.scripts]
-dev-web = "cargo trunk serve --port 11984"
-build-web = "cargo trunk build && rm -rf docs && mv dist docs"
+[workspace.metadata.scripts]
+dev-web = "cargo do dev-web-spa"
+dev-web-mpa = "echo 'todo'"
+dev-web-spa = "cd spa && cargo do dev"
+dev-web-ssh = "echo todo"
+dev-web-ssr = "cd ssr && cargo do dev"
+build-web = "cargo do build-web-spa"
+build-web-spa = "cd spa && cargo do build && cd .. && rm -rf docs && mv spa/dist docs"
+build-web-ssr = "cd ssr && cargo do build"
+
+[workspace.metadata.leptos]
+output-name = "jim-hill-r"
+site-root = "dist"
+assets-dir = "asset"
+tailwind-input-file = "assets/styles/tailwind.css"
+browserquery = "defaults"
+site-addr = "127.0.0.1:11984"
+reload-port = 11983
+env = "DEV"
+lib-profile-release = "wasm-release"
+lib-package="app"
+bin-package="ssr"

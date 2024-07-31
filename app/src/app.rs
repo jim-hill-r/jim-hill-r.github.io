@@ -262,9 +262,20 @@ fn Resume() -> impl IntoView {
     let engineerExperiences = [
         Experience {
             focus: Focus::ENGINEER,
+            title: "Staff Software Engineer".to_string(),
+            company: "JuliaHub".to_string(),
+            timeframe: "2024-Present".to_string(),
+            descriptions: vec![
+                "Collaborate with product management to define and plan technical work for JuliaSim products".to_string(),
+                "Design and deliver high-quality, on-time features for frontend UI and backend services".to_string(),
+                "Responsible for build, deploy, and triage of production releases.".to_string()
+            ]
+        },
+        Experience {
+            focus: Focus::ENGINEER,
             title: "Infrastructure Team Lead".to_string(),
             company: "JuliaHub".to_string(),
-            timeframe: "2023-Present".to_string(),
+            timeframe: "2023-2024".to_string(),
             descriptions: vec![
                 "Assumed role of people manager for the core platform infrastructure team while continuing cloud engineer role".to_string(),
                 "Maintained backlog and groomed support tickets and issues for team".to_string(),
@@ -275,7 +286,7 @@ fn Resume() -> impl IntoView {
             focus: Focus::ENGINEER,
             title: "Cloud Engineer".to_string(),
             company: "JuliaHub".to_string(),
-            timeframe: "2022-Present".to_string(),
+            timeframe: "2022-2024".to_string(),
             descriptions: vec![
                 "Responsible for site reliability for public, multi-tenant, single-tenant, and on-premise platform installations via Grafana alerting, observability and on-call rotations".to_string(),
                 "Implemented infrastructure improvements including CIS best practices; CICD for terraform, ansible, kustomize and custom Julia scripts; custom fluentbit logging solution; golden AMIs with Packer; and Stripe billing integrations".to_string(),
@@ -505,8 +516,8 @@ organization".to_string(),
                             <h2 class="print:leading-tight text-2xl font-semibold text-slate-600"> "Summary" </h2>
                             <hr/>
                             <p class="print:leading-tight">
-                            "I have more than 15 years of experience in software, mechanical, and manufacturing engineering in industries including software tech, healthcare, education, automotive, mining, aviation and power generation. "
-                            "During my career, I have held roles as a design engineer, applications engineer, software developer, and software engineer at Caterpillar, Renishaw, GE Digital, and IMO respectively. Recently I have been a principal software engineer and infrastructure team lead at two startups, NavAbility and JuliaHub. Combining this experience with a pair of Master's Degrees in Mechanical and Software Engineering allows me to provide a comprehensive view of how digital technology can help solve the real challenges faced by a modern internet."
+                            "I have more than 20 years of experience in software, mechanical, and manufacturing engineering in industries including software tech, healthcare, education, automotive, mining, aviation and power generation. "
+                            "During my career, I have held roles as a design engineer, applications engineer, software developer, and software engineer at Caterpillar, Renishaw, GE Digital, and IMO respectively. Recently I have been a software engineer at two startups, NavAbility and JuliaHub. Combining this experience with a pair of Master's degrees in mechanical and software engineering allows me to provide a comprehensive view of how digital technology can help solve the real challenges faced by a modern internet."
                             </p>
                         </div>
                         <div class="print:leading-tight print:text-[10px] print:leading-tight mt-2 col-span-4 text-left text-sm">

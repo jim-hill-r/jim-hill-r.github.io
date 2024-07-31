@@ -4,3 +4,7 @@ pub mod web {
         pub mod todo;
     }
 }
+
+pub mod data {
+    pub mod user;
+}
